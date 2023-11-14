@@ -5,7 +5,8 @@
   font-family: 'Roboto', sans-serif;
 }
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
+  height: 5px;
 }
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
@@ -45,6 +46,25 @@
     before:translate-y-[-50%] before:transform lg:before:origin-bottom lg:before:scale-y-0 text-lg
     before:origin-left before:scale-x-0 hover:before:scale-x-100 lg:before:scale-x-100 before:z-[-1]
     lg:hover:before:scale-y-100 before:transition-all duration-300 hover:text-white before:left-2/4
+  }
+  .filedset{
+    @apply flex flex-col border bg-gray-color drop-shadow-md px-4 rounded-lg space-y-8
+    md:flex-row md:flex-wrap py-5 mb-16
+  }
+  .legend{
+    @apply text-xl font-bold text-teal-color px-2 
+  }
+  .review-btn{
+    @apply px-2 py-1 bg-gray-500 text-white rounded-lg cursor-pointer text-center drop-shadow-md text-sm
+  }
+  .details-btn{
+    @apply px-2 py-1 bg-gray-500 text-white rounded-lg cursor-pointer text-center drop-shadow-md text-sm
+  }
+  .edit-btn{
+    @apply px-2 py-1 bg-teal-color text-white rounded-lg cursor-pointer text-center drop-shadow-md text-sm
+  }
+  .delete-btn{
+    @apply px-2 py-1 bg-red-500 text-white rounded-lg cursor-pointer text-center drop-shadow-md text-sm
   }
 }
 @layer utilities {

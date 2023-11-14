@@ -1,12 +1,13 @@
-import { BiLogoGithub } from 'react-icons/bi'
-import SectionHeader from '../components/sectionHeader'
+import {
+  SectionHeader, BiLogoSlack, BiLogoReact, BiLogoMastodon, BiLogoMicrosoftTeams, BiLogoMagento
+} from '../import'
 
 const insuranceCompanies = [
-  { 'id': 1, 'logo': <BiLogoGithub />, 'name': 'Company 1' },
-  { 'id': 2, 'logo': <BiLogoGithub />, 'name': 'Company 2' },
-  { 'id': 3, 'logo': <BiLogoGithub />, 'name': 'Company 3' },
-  { 'id': 4, 'logo': <BiLogoGithub />, 'name': 'Company 4' },
-  { 'id': 5, 'logo': <BiLogoGithub />, 'name': 'Company 5' },
+  { 'id': 1, 'logo': <BiLogoSlack />, 'name': 'MedNet' },
+  { 'id': 2, 'logo': <BiLogoReact />, 'name': 'MedCare' },
+  { 'id': 3, 'logo': <BiLogoMastodon />, 'name': 'AlphaCare' },
+  { 'id': 4, 'logo': <BiLogoMicrosoftTeams />, 'name': 'Shefaa' },
+  { 'id': 5, 'logo': <BiLogoMagento />, 'name': 'Sehaa' },
 ]
 
 function Insurance() {

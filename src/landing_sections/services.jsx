@@ -1,5 +1,6 @@
-import { FaHandHoldingHeart, FaUserNurse, FaRegCalendarCheck, FaShieldAlt } from 'react-icons/fa'
-import SectionHeader from '../components/sectionHeader'
+import {
+  SectionHeader, FaHandHoldingHeart, FaUserNurse, FaRegCalendarCheck, FaShieldAlt
+} from '../import'
 
 const services = [
   {
@@ -22,7 +23,7 @@ const services = [
 
 function Services() {
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative overflow-hidden" id='services'>
       <div className='w-[20px] h-[50px] absolute right-0 top-10 bg-teal-color opacity-30'></div>
       <div className='w-[20px] h-[50px] absolute right-0 bottom-[200px] bg-yellow-color opacity-30'></div>
       <div className='py-16 container mx-auto px-2'>

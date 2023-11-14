@@ -1,9 +1,11 @@
-import SectionHeader from "../components/sectionHeader"
-import { useEffect, useRef, useState } from 'react'
-import { BsArrowLeft, BsArrowRight, BsStarFill, BsStarHalf, BsStar } from 'react-icons/bs'
-import { BiSolidQuoteLeft, BiSolidQuoteRight } from 'react-icons/bi'
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
+import {
+  SectionHeader, useEffect, useRef, useState, BsArrowLeft, BsArrowRight, Stars,
+  BiSolidQuoteLeft, BiSolidQuoteRight
+} from '../import'
 
-const testimonialsData = [
+const testimonialsDataStatic = [
   {
     'id': 1, 'title': 'testimonials 1', 'description': 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus culpa velit\
     nam minima porro, ducimus accusamus iure veritatis aperiam quod maxime excepturi quia voluptatibus quae sed officia illo ab quas!',
@@ -21,7 +23,7 @@ const testimonialsData = [
   },
 ]
 
-function Testimonial() {
+function Testimonial({ testimonialsData }) {
   const [scrollMove, setScrollMove] = useState(0)
   const [scrollEnd, setScrollEnd] = useState(false)
 
@@ -39,24 +41,6 @@ function Testimonial() {
     scrollDiv.current.scrollLeft -= move
   }
 
-  const star = (number) => {
-    let star = number
-    let i = 0
-    const li = []
-    while (i < 5) {
-      if (star >= 1) {
-        li.push(<BsStarFill key={i} className="text-teal-color" />)
-      } else if (star > 0) {
-        li.push(<BsStarHalf key={i} className="text-teal-color" />)
-      } else {
-        li.push(<BsStar key={i} className="text-teal-color" />)
-      }
-      star--
-      i++
-    }
-    return li
-  }
-
   useEffect(() => {
     Math.floor(scrollDiv.current.scrollWidth - scrollMove) <= scrollDiv.current.offsetWidth
       ? setScrollEnd(true)
@@ -64,13 +48,13 @@ function Testimonial() {
   }, [scrollMove])
 
   return (
-    <section className="py-16 px-2 bg-gray-color">
+    <section className="py-16 px-2 bg-gray-color" id='testimonials'>
       <div className="container mx-auto">
         <SectionHeader span="What Our" title="Clients"
           paragraph="90% of our clients would recommend our servicesto others, Find out what their testimonials say." span2='Say' />
         <div className="flex flex-row items-center flex-nowrap overflow-x-scroll no-scrollbar
           scroll-smooth div-s md:space-x-8 space-x-3 pt-[20px] px-3" ref={scrollDiv}>
-          {testimonialsData.map(test => {
+          {testimonialsDataStatic.map(test => {
             return (
               <article key={test.id}
                 className='min-w-full md:min-w-[50%] xl:min-w-[calc(100%/3)] rounded-xl flex flex-col px-3 py-12 border-2 border-teal-color 
@@ -80,7 +64,7 @@ function Testimonial() {
                 <p className='mb-3  text-sm font-light leading-5'>
                   {test.description}
                 </p>
-                <div className="mb-5 flex space-x-1 items-center justify-center">{star(test.stars).map(star => star)}</div>
+                <div className="mb-5 flex space-x-1 items-center justify-center"><Stars starsNumber={test.stars} /></div>
                 <div className="flex items-center justify-center space-x-3">
                   <div className="w-[80px] h-[80px] rounded-full border border-teal-color overflow-hidden">
                     <img src={test.image} alt={test.name} className='max-w-full h-full block' />

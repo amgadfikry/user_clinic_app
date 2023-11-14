@@ -1,12 +1,13 @@
-import { FaUserNurse } from 'react-icons/fa'
-import { useRef, useState } from 'react'
+/* eslint-disable react/prop-types */
+import {
+  FaUserNurse, useRef
+} from '../import'
 
-function InputDiv() {
-  const [doctorName, setDoctorName] = useState('')
+function InputDiv({ doctorName, setDoctorName }) {
   const input = useRef(null)
 
   return (
-    <div className='flex flex-row  items-center border rounded-lg p-2 text-dark-color relative cursor-pointer
+    <div className='flex flex-row  items-center border rounded-lg p-2 text-dark-color relative cursor-text
       md:rounded-none border-l-0 border-r-0 md:flex-grow'onClick={() => input.current.focus()}>
       <FaUserNurse className=' text-teal-color font-[500] text-[30px] mr-3 pointer-events-none' />
       <div className='flex flex-col flex-grow pointer-events-none'>

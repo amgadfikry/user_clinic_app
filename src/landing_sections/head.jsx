@@ -1,8 +1,9 @@
+import { Link } from 'react-router-dom';
 import clinicPhoto from '../assets/clinicPhoto.jpg';
 
 function Head() {
   return (
-    <header className="flex flex-col lg:flex-row py-8 px-2 relative mb-5">
+    <header className="flex flex-col lg:flex-row py-8 px-2 relative mb-5" id='head'>
       <img src={clinicPhoto} alt="clinic entrance view"
         className='max-w-full h-full block mb-8 lg:mb-0 rounded-tl-full rounded-tr-full rounded-bl-full order-1 lg:order-2
         drop-shadow-2xl lg:w-1/2'></img>
@@ -13,8 +14,8 @@ function Head() {
           Repellendus, fugit eius nulla laudantium modi blanditiis voluptate
         </p>
         <div className='flex flex-row items-center justify-center mt-6'>
-          <button className='btn-dark mr-5'>Get Started</button>
-          <button className='btn-teal'>Explore</button>
+          <Link to='/getstart'><button className='btn-dark mr-5'>Get Started</button></Link>
+          <Link to='/dashboard/'><button className='btn-teal'>Explore</button></Link>
         </div>
       </section>
       <div className='w-[20px] h-[50px] absolute left-0 top-10 bg-yellow-color opacity-30'></div>

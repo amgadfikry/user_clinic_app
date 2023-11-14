@@ -1,23 +1,21 @@
-import Navbar from "./layout/navbar"
-import Head from "./sections/head"
-import Insurance from "./sections/insurance"
-import Offers from "./sections/offers"
-import Search from "./sections/search"
-import Services from "./sections/services"
-import Testimonial from "./sections/testimonials"
-
+import {
+  Router, Routes, Route, CookiesProvider, LandingPage, AuthChecker, Dashboard, NotFound, ServerError
+} from './import'
 
 function App() {
 
   return (
     <>
-      <Navbar />
-      <Head />
-      <Search />
-      <Services />
-      <Testimonial />
-      <Offers />
-      <Insurance />
+      <CookiesProvider defaultSetOptions={{ path: '/' }}>
+        <Router>
+          <Routes>
+            <Route exact path='/' element={<LandingPage />} ></Route>
+            <Route exact path='/dashboard/*' element={<AuthChecker> <Dashboard /> </AuthChecker>} ></Route>
+            <Route exact path='/server504error' element={<ServerError />} ></Route>
+            <Route exact path='*' element={<NotFound />} ></Route>
+          </Routes>
+        </Router>
+      </CookiesProvider>
     </>
   )
 }
