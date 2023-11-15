@@ -8,6 +8,7 @@ import SearchBar from './components/searchBar'
 import SearchResults from './components/searchResults'
 import DoctorCard from './components/doctorCard'
 import DoctorDateMonthly from './components/doctorDateMonthly'
+import TextInput from './components/textInput'
 // landing page sections
 import Head from './landing_sections/head'
 import Insurance from './landing_sections/insurance'
@@ -19,14 +20,21 @@ import SectionHeader from './landing_sections/sectionHeader'
 import Navbar from './landing_sections/navbar'
 import About from './landing_sections/about'
 import Footer from './landing_sections/footer'
-// layout
-
+// getstart (sign in & sign up)
+import Signin from './getstart_sections/signin'
+import Signup from './getstart_sections/signup'
 // pages
 import Dashboard from './pages/dashboard'
 import LandingPage from './pages/landingPage'
 import ComingSoon from './pages/comingSoon'
 import NotFound from './pages/notFound'
 import ServerError from './pages/serverError'
+import GetStart from './pages/getstart';
+// dashboard section
+import Sidebar from './dashboard_sections/sidebar'
+import NavbarDashboard from './dashboard_sections/navbar'
+import FooterDashboard from './dashboard_sections/footer'
+import Main from './dashboard_sections/main'
 
 // redux reducers and hooks
 import { setUserData, userDataState } from './redux/profile';
@@ -36,7 +44,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Routes, Route, useNavigate, NavLink, Link, useLocation } from 'react-router-dom';
 
 // constant through all app
-import { baseUrl } from '../constant'
+import { baseUrl, checkDataError } from '../constant'
 
 // reacts hooks
 import { useRef, useState, useEffect } from 'react'
@@ -45,28 +53,30 @@ import { useRef, useState, useEffect } from 'react'
 import { useCookies, CookiesProvider } from 'react-cookie';
 
 // icons
-import { FaUserNurse, FaHandHoldingHeart, FaRegCalendarCheck, FaShieldAlt } from 'react-icons/fa';
+import { FaUserNurse, FaHandHoldingHeart, FaRegCalendarCheck, FaShieldAlt, FaLock } from 'react-icons/fa';
 import { PiStethoscopeBold, PiDotsThreeOutlineVerticalFill, PiIdentificationCard } from 'react-icons/pi';
 import {
   BiLogoGithub, BiSolidQuoteLeft, BiSolidQuoteRight, BiLogoSlack, BiLogoReact, BiLogoMastodon, BiLogoMicrosoftTeams,
   BiLogoMagento
 } from 'react-icons/bi'
-import { MdNavigateNext, MdNavigateBefore } from 'react-icons/md'
+import { MdNavigateNext, MdNavigateBefore, MdEmail } from 'react-icons/md'
 import { TbCalendarPlus } from 'react-icons/tb'
 import { BsArrowLeft, BsArrowRight, BsStarFill, BsStarHalf, BsStar, BsFillPersonFill } from 'react-icons/bs'
 import { FaMoneyBill1Wave, FaLinkedinIn, FaGithub, FaXTwitter } from 'react-icons/fa6'
+
 
 export {
   //components
   InputDiv, SelectDiv, Head, Insurance, Offers, Search, SearchResults, Services, Testimonial, SectionHeader,
   Navbar, Dashboard, LandingPage, Stars, AuthChecker, LoadingComponent, ComingSoon, NotFound, ServerError, SearchBar,
-  DoctorCard, DoctorDateMonthly, About, Footer,
+  DoctorCard, DoctorDateMonthly, About, Footer, GetStart, Signin, Signup, TextInput, Sidebar, NavbarDashboard,
+  FooterDashboard, Main,
   //redux
   setUserData, userDataState, useDispatch, useSelector,
   //react-router-dom
   Router, Routes, Route, useNavigate, NavLink, Link, useLocation,
   //constant
-  baseUrl,
+  baseUrl, checkDataError,
   //react-cookie
   useCookies, CookiesProvider,
   //react hooks
@@ -75,5 +85,5 @@ export {
   FaUserNurse, FaHandHoldingHeart, FaRegCalendarCheck, FaShieldAlt, PiStethoscopeBold, BiLogoGithub, BiSolidQuoteLeft, BiSolidQuoteRight,
   MdNavigateNext, MdNavigateBefore, TbCalendarPlus, BsArrowLeft, BsArrowRight, BsStarFill, BsStarHalf, BsStar, PiDotsThreeOutlineVerticalFill,
   BsFillPersonFill, FaMoneyBill1Wave, PiIdentificationCard, BiLogoSlack, BiLogoReact, BiLogoMastodon, BiLogoMicrosoftTeams, BiLogoMagento,
-  FaLinkedinIn, FaGithub, FaXTwitter
+  FaLinkedinIn, FaGithub, FaXTwitter, FaLock, MdEmail
 }

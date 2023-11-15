@@ -6,28 +6,29 @@ import {
 } from '../import.js'
 
 function AuthChecker({ children }) {
-  const [cookies, setCookie] = useCookies(['token']);
+  const [cookies, setCookie] = useCookies(['token_user']);
   const [loading, setLoading] = useState(true);
   const [serverError, setServerError] = useState(false)
   const navigate = useNavigate();
 
   useEffect(() => {
     const path = window.location.pathname
-    if ('token' in cookies) {
+    if ('token_user' in cookies) {
       fetch(`${baseUrl}/api/public/state`, {
         headers: {
-          'Authorization': 'Bearer ' + cookies.token,
+          'Authorization': 'Bearer ' + cookies.token_user,
         },
         method: 'GET',
         mode: 'cors',
       }).then(response => response.json())
         .then(data => {
-          if (data.type === 'admin') {
+          if (data.type === 'user') {
             setLoading(false)
-            path === '/' ? navigate('/dashboard') : navigate(path)
+            path === '/getstart' || path ==='/getstart/signup' || path === '/getstart/'
+            ? navigate('/dashboard/') : navigate(path)
           } else {
+            path === '/getstart/signup' ? navigate(path) : navigate('/getstart/')
             setLoading(false)
-            navigate('/')
           }
         })
         .catch((error) => {
@@ -37,7 +38,7 @@ function AuthChecker({ children }) {
         });
     } else {
       setLoading(false)
-      navigate('/')
+      path === '/getstart/signup' ? navigate(path) : navigate('/getstart/')
     }
   }, [])
 

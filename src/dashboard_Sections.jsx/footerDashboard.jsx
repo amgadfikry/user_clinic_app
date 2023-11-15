@@ -2,14 +2,14 @@ import {
   FaLinkedinIn, FaGithub, FaXTwitter, Link
 } from '../import'
 
-function Footer() {
+function FooterDashboard() {
   return (
     <footer className="pt-8 pb-12 px-2 bg-gray-color text-dark-color">
       <nav className="flex space-x-5 items-center justify-center mb-5 text-sm">
-        <Link to='/' className="hover:text-teal-color transition-all duration-300 cursor-pointer">Home</Link>
-        <Link to='/dashboard/' className="hover:text-teal-color transition-all duration-300 cursor-pointer">Dashboard</Link>
-        <Link to='/getstart/' className="hover:text-teal-color transition-all duration-300 cursor-pointer">Sign in</Link>
-        <Link className="hover:text-teal-color transition-all duration-300 cursor-pointer">Admin dashboard</Link>
+        <Link to='/' className="hover:text-teal-color transition-all duration-300 cursor-pointer">Dashboard</Link>
+        <Link to='/dashboard/' className="hover:text-teal-color transition-all duration-300 cursor-pointer">Appointments</Link>
+        <Link to='/getstart/' className="hover:text-teal-color transition-all duration-300 cursor-pointer">Profile</Link>
+        <Link className="hover:text-teal-color transition-all duration-300 cursor-pointer">Feedback</Link>
       </nav>
       <nav>
         <div className="flex space-x-5 items-center justify-center mb-5 text-lg">
@@ -31,4 +31,4 @@ function Footer() {
   )
 }
 
-export default Footer
+export default FooterDashboard

@@ -12,7 +12,7 @@ function LandingPage() {
   const [offersData, setOffersData] = useState([])
   const [serverError, setServerError] = useState(false)
   const [loading, setLoading] = useState(true)
-  const [cookies] = useCookies(['token'])
+  const [cookies] = useCookies(['token_user'])
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -27,7 +27,7 @@ function LandingPage() {
     fetchLibrary.forEach((item) => {
       fetch(baseUrl + item.url, {
         headers: {
-          'Authorization': 'Bearer ' + cookies.token ? cookies.token : '',
+          'Authorization': 'Bearer ' + cookies.token_user,
         },
         method: 'GET',
         mode: 'cors',
@@ -40,7 +40,9 @@ function LandingPage() {
           navigate('/server504error')
         });
     })
-    setLoading(false)
+    setTimeout(()=>{
+      setLoading(false)
+    }, 3000)
   }, [])
 
   if (loading) {

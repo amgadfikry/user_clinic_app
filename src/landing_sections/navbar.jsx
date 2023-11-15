@@ -46,10 +46,10 @@ function Navbar({ userData }) {
               )
               : (
                 <div className='flex flex-col md:flex-row items-center'>
-                  <Link to='/getstart'>
+                  <Link to='/getstart/'>
                     <div className="md:mr-1 mr-0 md:mb-0 mb-3 link-hover border border-transparent">Sign in</div>
                   </Link>
-                  <Link to='/getstart'>
+                  <Link to='/getstart/signup'>
                     <div className="link-border-hover">Sign up</div>
                   </Link>
                 </div>

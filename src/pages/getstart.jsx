@@ -1,18 +1,17 @@
 import {
-  FaLinkedinIn, FaGithub, FaXTwitter, Link
+  Routes, Route, Signin, Signup, FaLinkedinIn, FaGithub, FaXTwitter
 } from '../import'
 
-function Footer() {
+function GetStart() {
   return (
-    <footer className="pt-8 pb-12 px-2 bg-gray-color text-dark-color">
-      <nav className="flex space-x-5 items-center justify-center mb-5 text-sm">
-        <Link to='/' className="hover:text-teal-color transition-all duration-300 cursor-pointer">Home</Link>
-        <Link to='/dashboard/' className="hover:text-teal-color transition-all duration-300 cursor-pointer">Dashboard</Link>
-        <Link to='/getstart/' className="hover:text-teal-color transition-all duration-300 cursor-pointer">Sign in</Link>
-        <Link className="hover:text-teal-color transition-all duration-300 cursor-pointer">Admin dashboard</Link>
-      </nav>
+    <section className='w-screen h-screen flex flex-col items-center'>
+        <Routes>
+          <Route exact path='/' element={<Signin />} ></Route>
+          <Route exact path='signup' element={<Signup />} ></Route>
+        </Routes>
+        <footer className="py-2 px-2 mt-auto bg-gray-color text-dark-color  w-full">
       <nav>
-        <div className="flex space-x-5 items-center justify-center mb-5 text-lg">
+        <div className="flex space-x-5 items-center justify-center  text-sm">
           <a href="https://github.com/amgadfikry" target="_blank" rel="noopener noreferrer">
             <FaLinkedinIn className='text-teal-color  transition-all duration-300 hover:text-dark-color' />
           </a>
@@ -24,11 +23,12 @@ function Footer() {
           </a>
         </div>
       </nav>
-      <aside className='text-sm text-center'>
+      <aside className='text-sm text-center mt-2'>
         <p>Copyright © {new Date().getFullYear()} Amgad Fikry Mohamed, All rights reserved.</p>
       </aside>
     </footer>
-  )
+    </section>
+  );
 }
 
-export default Footer
+export default GetStart;
