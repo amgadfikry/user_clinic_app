@@ -4,15 +4,15 @@ import {
 
 function FooterDashboard() {
   return (
-    <footer className="pt-8 pb-12 px-2 bg-gray-color text-dark-color">
-      <nav className="flex space-x-5 items-center justify-center mb-5 text-sm">
-        <Link to='/' className="hover:text-teal-color transition-all duration-300 cursor-pointer">Dashboard</Link>
-        <Link to='/dashboard/' className="hover:text-teal-color transition-all duration-300 cursor-pointer">Appointments</Link>
-        <Link to='/getstart/' className="hover:text-teal-color transition-all duration-300 cursor-pointer">Profile</Link>
-        <Link className="hover:text-teal-color transition-all duration-300 cursor-pointer">Feedback</Link>
+    <footer className="py-3 px-2 bg-gray-color text-dark-color mt-auto">
+      <nav className="flex space-x-5 items-center justify-center mb-2 text-sm">
+        <Link to='/dashboard/' className="hover:text-teal-color transition-all duration-300 cursor-pointer">Dashboard</Link>
+        <Link to='/dashboard/appointments' className="hover:text-teal-color transition-all duration-300 cursor-pointer">Appointments</Link>
+        <Link to='/dashboard/feedback' className="hover:text-teal-color transition-all duration-300 cursor-pointer">Feedback</Link>
+        <Link to='/dashboard/profile' className="hover:text-teal-color transition-all duration-300 cursor-pointer">Profile</Link>
       </nav>
       <nav>
-        <div className="flex space-x-5 items-center justify-center mb-5 text-lg">
+        <div className="flex space-x-5 items-center justify-center mb-2 text-lg">
           <a href="https://github.com/amgadfikry" target="_blank" rel="noopener noreferrer">
             <FaLinkedinIn className='text-teal-color  transition-all duration-300 hover:text-dark-color' />
           </a>

@@ -30,7 +30,7 @@ function ComingSoon() {
 
 
   return (
-    <div className='relative min-h-full py-10 px-4 flex flex-col justify-center items-center'>
+    <div className='relative flex-1 container mx-auto py-10 px-4 flex flex-col justify-center items-center'>
       <h1 className='text-center text-teal-color text-2xl font-bold mb-5'>Coming Soon!</h1>
       <div className='flex space-x-2' >
         <div className='flex flex-col justify-center items-center'>

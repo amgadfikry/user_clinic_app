@@ -1,10 +1,21 @@
 import process from 'process';
 
-export const baseUrl = process.env.NODE_ENV === 'development' ? 'http://127.0.0.1:5000' : 'http://192.168.1.3:5000';
+export const baseUrl = process.env.NODE_ENV === 'development' ? 'http://192.168.1.3:5000' : 'http://192.168.1.3:5000';
 //http://192.168.1.3:5000   http://127.0.0.1:5000
 
 const searchPattern = (pattern, string) => {
   return (pattern.test(string));
+}
+
+export const samilarData = (newData, oldData) => {
+  const errorDic = {};
+  for (const key in newData) {
+    if (newData[key] !== oldData[key]) {
+      return errorDic;
+    }
+  }
+  errorDic['all'] = 'Same data without changes';
+  return errorDic;
 }
 
 export const checkDataError = (data, exception) => {
@@ -50,10 +61,33 @@ export const checkDataError = (data, exception) => {
       continue;
     }
   }
-   if (Object.keys(errorDic).length > 0) {
+  if (Object.keys(errorDic).length > 0) {
     errorDic['all'] = 'Check input requirements';
   }
   return (errorDic)
 }
 
+export const checkPassword = (data) => {
+  const passwordPattern = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+{}|:<>?~]).{8,}$/;
+  const errorDic = {}
+  for (let [key, value] of Object.entries(data)) {
+    if (!value) {
+      errorDic[key] = 'Fill required field';
+      continue;
+    }
+    if (['new_password', 'confirm_password'].includes(key) && !searchPattern(passwordPattern, value)) {
+      errorDic[key] = 'Password contain at least (one special character, number, capital letter)\
+												and at least 8 characters'
+      continue;
+    }
+    if (key === 'confirm_password' && value != data['new_password']) {
+      errorDic[key] = 'Not match password'
+      continue;
+    }
+  }
+  if (Object.keys(errorDic).length > 0) {
+    errorDic['all'] = 'Check input requirements';
+  }
+  return (errorDic)
+}
 

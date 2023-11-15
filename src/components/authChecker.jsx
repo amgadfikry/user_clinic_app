@@ -24,8 +24,8 @@ function AuthChecker({ children }) {
         .then(data => {
           if (data.type === 'user') {
             setLoading(false)
-            path === '/getstart' || path ==='/getstart/signup' || path === '/getstart/'
-            ? navigate('/dashboard/') : navigate(path)
+            path === '/getstart' || path === '/getstart/signup' || path === '/getstart/'
+              ? navigate('/dashboard/') : navigate(path)
           } else {
             path === '/getstart/signup' ? navigate(path) : navigate('/getstart/')
             setLoading(false)

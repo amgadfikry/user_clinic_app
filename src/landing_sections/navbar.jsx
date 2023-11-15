@@ -22,7 +22,7 @@ function Navbar({ userData }) {
         <ul className={`${isMenuActive ? 'flex' : 'hidden'} absolute md:static top-[53px] md:top-0 left-0 space-y-3 md:space-y-0
         bg-white md:bg-transparent px-[100px] py-8 md:px-0 md:py-0 z-10 md:z-0 shadow-lg md:shadow-none 
           w-full rounded-b-lg md:rounded-none flex-col items-center md:flex md:flex-row md:grow font-medium`}>
-          <Link to='/dashboard'>
+          <Link to='/dashboard/'>
             <li className="md:mr-2 mr-0 link-hover">Dashboard</li>
           </Link>
           <a href='#search' onClick={closeMenu}>
