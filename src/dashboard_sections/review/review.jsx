@@ -1,48 +1,50 @@
 /* eslint-disable no-unused-vars */
 import feedbackPhoto from '../../assets/feedback.jpg'
 import {
-  Textarea, SubmitBtn, userDataState, baseUrl, useCookies, useSelector, useState, checkDataError, useNavigate, InteractiveStars
+  Textarea, SubmitBtn, baseUrl, useCookies, useState, checkDataError, useNavigate, InteractiveStars, useLocation
 } from '../../import'
 
-function Feedback() {
-  const emptyData = { 'stars': 0, 'details': '', 'live': 0 }
+function Review() {
+  const location = useLocation()
+  const appData = location.state
+  const emptyData = { 'stars': 0, 'text': '' }
   const [cookies] = useCookies(['token_user'])
-  const [createFeedback, setCreateFeedback] = useState(emptyData)
-  const userData = useSelector(userDataState)
+  const [createReview, setCreateReview] = useState(emptyData)
   const [successChanges, setSuccessChanges] = useState(false)
   const [serverError, setServerError] = useState(false)
   const [errorMsg, setErrorMsg] = useState({})
   const navigate = useNavigate()
 
-  const handleChangeProfile = (e) => {
-    setCreateFeedback({ ...createFeedback, [e.target.name]: e.target.value });
+  const handleChangeReview = (e) => {
+    setCreateReview({ ...createReview, [e.target.name]: e.target.value });
   };
 
   const handleCancel = (e) => {
     e.preventDefault()
-    setCreateFeedback({ ...emptyData })
+    setCreateReview({ ...emptyData })
     setErrorMsg({})
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
     setErrorMsg({})
-    const errors = checkDataError(createFeedback, ['live'])
+    const errors = checkDataError(createReview, ['text'])
     if (Object.keys(errors).length > 0) {
       setErrorMsg({ ...errors })
       return;
     }
-    fetch(`${baseUrl}/api/user/testimonial`, {
+    const reviewData = { ...createReview, 'doctor_id': appData.doctor_id }
+    fetch(`${baseUrl}/api/user/review`, {
       method: 'POST',
       headers: {
         'Authorization': 'Bearer ' + cookies.token_user,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(createFeedback),
+      body: JSON.stringify(reviewData),
       mode: 'cors'
     }).then(response => response.json())
       .then(data => {
-        setCreateFeedback({ ...emptyData })
+        setCreateReview({ ...emptyData })
         setSuccessChanges(true)
         setTimeout(() => {
           setSuccessChanges(false)
@@ -66,10 +68,10 @@ function Feedback() {
       <div>
         <form onSubmit={handleSubmit}>
           <fieldset className='filedset'>
-            <legend className='legend'>Give a feedback</legend>
-            <Textarea placeholder='Enter your feedback' id='details' changeValue={setCreateFeedback} value={createFeedback}
-              error={errorMsg.details} />
-            <InteractiveStars getStars={createFeedback} setStars={setCreateFeedback} error={errorMsg.stars} />
+            <legend className='legend'>Give a Review</legend>
+            <Textarea placeholder='Enter your feedback' id='text' changeValue={setCreateReview} value={createReview}
+              error={errorMsg.text} />
+            <InteractiveStars getStars={createReview} setStars={setCreateReview} error={errorMsg.stars} />
             <SubmitBtn value='Save Changes' error={errorMsg.all} cancel={handleCancel}
               success={successChanges} successMsg='Feedback added thank you' />
           </fieldset>
@@ -79,4 +81,4 @@ function Feedback() {
   )
 }
 
-export default Feedback
+export default Review

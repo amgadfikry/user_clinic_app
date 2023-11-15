@@ -2,26 +2,8 @@
 /* eslint-disable no-unused-vars */
 import {
   SectionHeader, useEffect, useRef, useState, BsArrowLeft, BsArrowRight, Stars,
-  BiSolidQuoteLeft, BiSolidQuoteRight
+  BiSolidQuoteLeft, BiSolidQuoteRight, BsFillPersonFill
 } from '../import'
-
-const testimonialsDataStatic = [
-  {
-    'id': 1, 'title': 'testimonials 1', 'description': 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus culpa velit\
-    nam minima porro, ducimus accusamus iure veritatis aperiam quod maxime excepturi quia voluptatibus quae sed officia illo ab quas!',
-    'image': 'https://picsum.photos/200/200', 'name': 'amgad fikry mohamed', 'stars': 5, 'date': '2021 - 09 - 01'
-  },
-  {
-    'id': 2, 'title': 'testimonials 2', 'description': 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus culpa velit\
-    nam minima porro, ducimus accusamus iure veritatis aperiam quod maxime excepturi quia voluptatibus quae sed officia illo ab quas!',
-    'image': 'https://picsum.photos/200/200', 'name': 'amgad fikry mohamed', 'stars': 2.5, 'date': '2021 - 09 - 01'
-  },
-  {
-    'id': 3, 'title': 'testimonials 3', 'description': 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus culpa velit\
-    nam minima porro, ducimus accusamus iure veritatis aperiam quod maxime excepturi quia voluptatibus quae sed officia illo ab quas!',
-    'image': 'https://picsum.photos/200/200', 'name': 'amgad fikry mohamed', 'stars': 4.5, 'date': '2021 - 09 - 01'
-  },
-]
 
 function Testimonial({ testimonialsData }) {
   const [scrollMove, setScrollMove] = useState(0)
@@ -54,7 +36,7 @@ function Testimonial({ testimonialsData }) {
           paragraph="90% of our clients would recommend our servicesto others, Find out what their testimonials say." span2='Say' />
         <div className="flex flex-row items-center flex-nowrap overflow-x-scroll no-scrollbar
           scroll-smooth div-s md:space-x-8 space-x-3 pt-[20px] px-3" ref={scrollDiv}>
-          {testimonialsDataStatic.map(test => {
+          {testimonialsData.map(test => {
             return (
               <article key={test.id}
                 className='min-w-full md:min-w-[50%] xl:min-w-[calc(100%/3)] rounded-xl flex flex-col px-3 py-12 border-2 border-teal-color 
@@ -62,16 +44,19 @@ function Testimonial({ testimonialsData }) {
                 <BiSolidQuoteLeft className="absolute top-[-5px] left-[-5px]  text-5xl text-teal-color bg-gray-color pt-1 pl-1" />
                 <BiSolidQuoteRight className="absolute bottom-[-5px] right-[-5px]  text-5xl text-teal-color bg-gray-color pb-1 pr-1" />
                 <p className='mb-3  text-sm font-light leading-5'>
-                  {test.description}
+                  {test.details}
                 </p>
                 <div className="mb-5 flex space-x-1 items-center justify-center"><Stars starsNumber={test.stars} /></div>
                 <div className="flex items-center justify-center space-x-3">
                   <div className="w-[80px] h-[80px] rounded-full border border-teal-color overflow-hidden">
-                    <img src={test.image} alt={test.name} className='max-w-full h-full block' />
+                    {test.user_image
+                      ? <img src={test.user_image} alt={test.user_name} className='max-w-full h-full block' />
+                      : <BsFillPersonFill className=' text-gray-600 bg-gray-200 p-1  md:p-2' />
+                    }
                   </div>
                   <div>
-                    <p className='font-medium text-left '>{test.name}</p>
-                    <p className="font-light text-left text-sm">{test.date}</p>
+                    <p className='font-medium text-left '>{test.user_name}</p>
+                    <p className="font-light text-left text-sm">{test.created_at.split(' ')[0]}</p>
                   </div>
                 </div>
               </article>

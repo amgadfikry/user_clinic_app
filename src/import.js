@@ -46,6 +46,8 @@ import ChangeInfo from './dashboard_sections/profile/changeInfo'
 import ChangePassword from './dashboard_sections/profile/changePass'
 import Appointments from './dashboard_sections/appointments/appointments'
 import Feedback from './dashboard_sections/feedback/feedback'
+import MakeAppointment from './dashboard_sections/makeAppointment/makeAppointment'
+import Review from './dashboard_sections/review/review'
 
 
 // redux reducers and hooks
@@ -73,7 +75,7 @@ import {
 } from 'react-icons/bi'
 import { MdNavigateNext, MdNavigateBefore, MdEmail, MdLightMode, MdDarkMode, MdOutlineSearch, MdSpaceDashboard } from 'react-icons/md'
 import { TbCalendarPlus } from 'react-icons/tb'
-import { BsArrowLeft, BsArrowRight, BsStarFill, BsStarHalf, BsStar, BsFillPersonFill, BsClipboardData } from 'react-icons/bs'
+import { BsArrowLeft, BsArrowRight, BsStarFill, BsStarHalf, BsStar, BsFillPersonFill, BsClipboardData, BsBriefcase } from 'react-icons/bs'
 import { FaMoneyBill1Wave, FaLinkedinIn, FaGithub, FaXTwitter } from 'react-icons/fa6'
 import { IoMdNotifications } from 'react-icons/io'
 import { TbMenu2, TbMenuDeep } from "react-icons/tb";
@@ -81,6 +83,7 @@ import { AiOutlineSchedule, AiOutlineClose } from "react-icons/ai";
 import { VscFeedback } from "react-icons/vsc";
 import { CgProfile } from "react-icons/cg";
 import { LiaSignOutAltSolid } from "react-icons/lia";
+import { GrContactInfo } from "react-icons/gr";
 
 
 export {
@@ -89,7 +92,7 @@ export {
   Navbar, Dashboard, LandingPage, Stars, AuthChecker, LoadingComponent, ComingSoon, NotFound, ServerError, SearchBar,
   DoctorCard, DoctorDateMonthly, About, Footer, GetStart, Signin, Signup, TextInput, Sidebar, NavbarDashboard,
   FooterDashboard, SidebarNavLink, Home, Profile, Appointments, Feedback, ChangeInfo, ChangePassword, SubmitBtn, ImageSelect,
-  Textarea, InteractiveStars,
+  Textarea, InteractiveStars, MakeAppointment, Review,
 
   //redux
   setUserData, userDataState, useDispatch, useSelector,
@@ -106,5 +109,6 @@ export {
   MdNavigateNext, MdNavigateBefore, TbCalendarPlus, BsArrowLeft, BsArrowRight, BsStarFill, BsStarHalf, BsStar, PiDotsThreeOutlineVerticalFill,
   BsFillPersonFill, FaMoneyBill1Wave, PiIdentificationCard, BiLogoSlack, BiLogoReact, BiLogoMastodon, BiLogoMicrosoftTeams, BiLogoMagento,
   FaLinkedinIn, FaGithub, FaXTwitter, FaLock, MdEmail, MdLightMode, IoMdNotifications, MdDarkMode, MdOutlineSearch, TbMenu2, TbMenuDeep,
-  MdSpaceDashboard, AiOutlineSchedule, FaCcVisa, VscFeedback, CgProfile, LiaSignOutAltSolid, AiOutlineClose, BsClipboardData, BiSolidCloudUpload
+  MdSpaceDashboard, AiOutlineSchedule, FaCcVisa, VscFeedback, CgProfile, LiaSignOutAltSolid, AiOutlineClose, BsClipboardData, BiSolidCloudUpload,
+  GrContactInfo, BsBriefcase
 }

@@ -1,8 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
-import { useEffect } from 'react'
 import {
-  SearchBar, SectionHeader, useState, SearchResults
+  SearchBar, SectionHeader, useState, SearchResults, useEffect
 } from '../import'
 
 function Search({ doctorsData }) {

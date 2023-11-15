@@ -33,7 +33,7 @@ function DoctorCard({ doctor }) {
         </div>
       </div>
       <div className='flex-shrink-0 flex justify-center items-center'>
-        <DoctorDateMonthly times={doctor.all_times} />
+        <DoctorDateMonthly times={doctor.all_times} doctor={doctor} />
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ import {
   useState, useEffect, Link, MdNavigateNext, MdNavigateBefore
 } from '../import';
 
-function DoctorDateMonthly({ times }) {
+function DoctorDateMonthly({ times, doctor }) {
   const [datesForSpecificDays, setDatesForSpecificDays] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 3;
@@ -83,7 +83,8 @@ function DoctorDateMonthly({ times }) {
                 <p className=' text-sm mb-2'>to</p>
                 <p className=' text-sm'>{date.end < 10 ? '0' + date.end + ':00' : date.end + ':00'}</p>
               </div>
-              <Link to='/dashboard/'>
+              <Link to={`/dashboard/makeappointment/${doctor.id}`}
+                state={[doctor, `${date.day} ${date.date}/${date.month}/${date.year} ${date.start < 10 ? '0' + date.start + ':00' : date.start + ':00'}`]}>
                 <p className='text-sm text-white bg-teal-color transition-all duration-300 cursor-pointer hover:bg-dark-color
                 p-1 text-center'>book</p>
               </Link>

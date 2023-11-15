@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import {
   SectionHeader, FaLinkedinIn, FaGithub, FaXTwitter
 } from '../import'
@@ -17,7 +18,7 @@ function About() {
             proficiency in Python and JavaScript. My focus is on creating, refining, and optimizing projects, showcasing
             a portfolio of meticulously developed applications. Explore the innovative solutions that highlight my dedication
             to building exceptional software.</p>
-          <div className='flex items-center justify-center space-x-8 text-3xl  mt-10'>
+          {/*<div className='flex items-center justify-center space-x-8 text-3xl  mt-10'>
             <a href="https://github.com/amgadfikry" target="_blank" rel="noopener noreferrer">
               <FaLinkedinIn className='text-teal-color  transition-all duration-300 hover:text-dark-color' />
             </a>
@@ -27,7 +28,7 @@ function About() {
             <a href="https://twitter.com/amgadfikrymoter" target="_blank" rel="noopener noreferrer">
               <FaXTwitter className='text-teal-color  transition-all duration-300 hover:text-dark-color' />
             </a>
-          </div>
+          </div>*/}
         </div>
       </div>
     </section>

@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import {
   Routes, Route, NavbarDashboard, Sidebar, FooterDashboard, useState, useCookies, useDispatch, useNavigate, setUserData,
-  baseUrl, useEffect, Home, Profile, Appointments, Feedback, ComingSoon
+  baseUrl, useEffect, Home, Profile, Appointments, Feedback, ComingSoon, MakeAppointment, Review
 } from '../import'
 
 function Dashboard() {
@@ -39,6 +39,8 @@ function Dashboard() {
       <Sidebar toggleSidebar={toggleSidebar} setToggleSidebar={setToggleSidebar} />
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='makeappointment/:id' element={<MakeAppointment />} />
+        <Route path='review/:id' element={<Review />} />
         <Route path='appointments' element={<Appointments />} />
         <Route path='history' element={<ComingSoon />} />
         <Route path='billing' element={<ComingSoon />} />

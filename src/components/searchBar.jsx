@@ -23,7 +23,7 @@ function SearchBar({ data, setData, doctorsData }) {
   }
 
   return (
-    <div className="container mx-auto bg-white drop-shadow-lg rounded-lg py-3 relative z-50">
+    <div className="container mx-auto bg-white drop-shadow-lg rounded-lg py-3 relative z-40">
       <div className='flex items-center justify-center text-teal-color border-b pb-3'>
         <TbCalendarPlus className='font-[500] text-5xl mr-3' />
         <div className=''>

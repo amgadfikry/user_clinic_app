@@ -21,7 +21,7 @@ function Sidebar({ toggleSidebar, setToggleSidebar }) {
 
   return (
     <div className={`fixed top-1/2 translate-y-[-50%] left-4 translate-x-0 rounded-xl py-5 px-3 shadow-lg border whitespace-nowrap bg-white
-      border-gray-200 overflow-hidden z-30 text-dark-color transition duration-300 ${toggleSidebar && 'translate-x-[-103%]'}`}>
+      border-gray-200 overflow-hidden z-50 text-dark-color transition duration-300 ${toggleSidebar && 'translate-x-[-103%]'}`}>
       <div className='h-full flex flex-col relative'>
         <AiOutlineClose className='absolute  -top-2 right-0 text-xl cursor-pointer' onClick={handleSidebar} />
         <div className="flex flex-col items-center py-2 border-b mb-5 px-8" >

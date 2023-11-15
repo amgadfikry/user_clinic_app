@@ -35,9 +35,9 @@ function InteractiveStars({ getStars, setStars, error }) {
     );
   });
 
-  return <div className='flex flex-col'>
+  return <div className='flex flex-col flex-1 flex-grow w-full items-center mt-0'>
     <div className='flex space-x-1 text-teal-color text-xl'>{stars}</div>
-    <p className='text-[11px] text-red-500 pl-1 h-2 mt-1'>Please provide rate</p>
+    <p className='text-[11px] text-red-500 pl-1 h-2 mt-1'>{error}</p>
   </div>
 }
 
